@@ -16,7 +16,7 @@ export default function Header() {
               <Nav.Link><Link to='/' className='link'>About</Link></Nav.Link>
               <Nav.Link><Link to='/menu' className='link'>Menu</Link></Nav.Link>
               <Nav.Link><Link to='/' className='link'>Contact us</Link></Nav.Link>
-              <Nav.Link><Link to='/' className='link'>Review</Link></Nav.Link>
+              <Nav.Link><Link to='/Review' className='link'>Review</Link></Nav.Link>
               <Nav.Link><Link to='/login' className='link'>Login</Link></Nav.Link>
             </Nav>
         </Container>

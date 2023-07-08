@@ -33,8 +33,8 @@ export default function Login() {
   return (
     <div>
       <div style={{ backgroundImage: "url(/Images/bg)" }}>
-        <div style={{ fontWeight: '700', fontSize: '40px', textAlign: 'center', marginTop: '60px' }}>
-          “Expand Your Horizons with <br /> Every Turn of the Page”
+        <div style={{ fontWeight: '700', fontSize: '40px', textAlign: 'center', marginTop: '60px',color: 'white' }}>
+        “Food is not just eating <br /> It's an experience”
         </div>
         <div style={{ backgroundColor: 'black', width: '470px', height: '320px', margin: 'auto', borderRadius: '30px', marginTop: '30px' }}>
           {/* <img src={Logo} alt="" style={{ marginLeft: '42%', marginTop: '15px', height: '90px' }} /> */}
@@ -58,7 +58,7 @@ export default function Login() {
         >
           Sign Up
         </button>
-        <p style={{ textAlign: 'center', marginTop: '10px' }}>
+        <p style={{ textAlign: 'center', marginTop: '10px',color: 'white' }}>
           Already have an account? <a href="/">Login</a>
         </p>
       </div>

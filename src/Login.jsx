@@ -57,7 +57,7 @@ export default function Login() {
             />
           </div>
           <button type='submit' onClick={submit} style={{ backgroundColor: 'black', marginLeft: '46.8%', marginTop: '50px', borderRadius: '15px', fontWeight: '500', padding: '5px 15px 5px 15px', fontSize: '20px', color: 'white' }}>Login</button>
-          <p style={{ textAlign: 'center', marginTop: '10px' }}>
+          <p style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
             Don't have an account? <a href="/Signup">Sign up</a>
           </p>
         </div>

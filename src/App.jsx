@@ -4,6 +4,8 @@ import Menu from "./Menu";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
+import Signup from "./Signup";
+import Review from "./Review";
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Review" element={<Review />} />
       </Routes>
     </div>
   );
