@@ -36,11 +36,12 @@ export default function Login() {
             “Food is not just eating <br /> It's an experience”
           </div>
           <div style={{ backgroundColor: 'black', width: '470px', height: '320px', margin: 'auto', borderRadius: '30px', marginTop: '30px' }}>
-            <img
+            {/* <img
             //   src=
               alt=""
-              style={{ marginLeft: '42%', marginTop: '15px', height: '90px' }}
-            />
+             style={{ marginLeft: '42%', marginTop: '15px', height: '90px' }}
+            /> */}
+            <h1 style={{ color: 'white', textAlign: 'center' }}>Login Here</h1>
             <input
               type='email'
               value={email}

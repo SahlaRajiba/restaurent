@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 import Review from "./Review";
+import Contact from "./Contact";
+import About from "./About";
 
 export default function App() {
   return (
@@ -17,6 +19,9 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Review" element={<Review />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/About" element={<About />} />
+        
       </Routes>
     </div>
   );

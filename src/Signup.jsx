@@ -38,6 +38,7 @@ export default function Login() {
         </div>
         <div style={{ backgroundColor: 'black', width: '470px', height: '320px', margin: 'auto', borderRadius: '30px', marginTop: '30px' }}>
           {/* <img src={Logo} alt="" style={{ marginLeft: '42%', marginTop: '15px', height: '90px' }} /> */}
+          <h1 style={{ color: 'white', textAlign: 'center' }}>Signup Here</h1>
           <input
             type='email'
             onChange={(e) => setEmail(e.target.value)}
