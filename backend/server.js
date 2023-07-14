@@ -1,47 +1,63 @@
 const express = require('express');
-const app = new express()
-const PORT =5837
-const mongoose = require('mongoose')
-const cors = require('cors'); // to remore cor issue
-app.use(cors())  // cor policy activation
-app.use(express.json()); // to render json req from frontend
-app.use(express.urlencoded({extended:true})); // to render form data from frontend
+const mongoose = require('mongoose');
+const app = express();
+const PORT = 4000;
+const collection = require('./database');
+const cors = require('cors');
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
+mongoose.connect("mongodb+srv://sahlarajiba:l5jk1K0gJzbKjO0J@tasty-bites.e7w5f3f.mongodb.net/")//!insert your username
+    .then(() => { console.log("MongoDB connected successfully") })//*success message
+    .catch((err) => { console.log("Error connecting to MongoDB " + err) });//*fail message
+  
 
-mongoose.connect('mongodb+srv://sahlarajiba:sahla1@cluster0.3jwiy4u.mongodb.net/FSD')
-.then(()=>{console.log("MongoDB connected successfully")})
-.catch((err)=>{console.log("Error connecting to MongoDB " + err)});
+app.get("/",cors(),(req,res)=>{
 
+})
 
-
-
-
-// CRUD operation 
-// C-Create - POST 
-//R-READ-GET
-//U-Update -PUT
-//D-Delete - DELETE
-// const PRODUCT = require("./model/product")
-// app.post('/addData',async (req, res) => {
-//     try {
-
-//         let item = req.body
-//         console.log(item)
-
-//         const saveData = await PRODUCT(item)
-//         console.log(saveData)
-//         await saveData.save()
-//         res.send((saveData))
-
-
-
-
-//     } catch (error) {
-//         res.send(error);
-//     }
-// })
-
-
-app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+app.listen(PORT, function(){
+    console.log(`Server running on port ${PORT}`);
 });
+
+
+app.post("/login", async(req,res) =>{
+    const{email,password} = req.body;
+
+    try {
+        const check = await collection.findOne({email:email});
+   
+        if(check && check.password === password){
+            
+            res.json("exist");
+        }
+        else{
+            res.json("notexist");
+        }
+    } catch (error) {
+        res.json("notexist");
+    }
+})
+
+app.post("/signup", async(req,res) =>{
+    const{email,password} = req.body;
+
+    const data = {
+        email:email,
+        password:password,
+    }
+    try {
+        const check = await collection.findOne({email:email});
+
+        if(check){
+            res.json("exist")
+        }
+        else{
+            res.json("notexist");
+            await collection.insertMany([data]);
+        }
+    } catch (error) {
+        res.json("notexist");
+    }
+})

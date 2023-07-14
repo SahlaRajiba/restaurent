@@ -1,9 +1,12 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import "./Home.css";
+import { useLocation } from "react-router-dom";
 
 export default function App() {
   // c
+
+    const location = useLocation;
 
   return (
     <div>
@@ -12,7 +15,7 @@ export default function App() {
       </div>
       <Container>
       <h1 className="title">TASTYBITES</h1>
-        {/* {*/}
+        <h2 className="text-center" style={{color:'white'}}>Welcome to the restaurant</h2>
       </Container>
     </div>
   );

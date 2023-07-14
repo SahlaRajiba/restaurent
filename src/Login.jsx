@@ -11,7 +11,7 @@ export default function Login() {
       e.preventDefault();
   
       try {
-        const response = await axios.post("http://localhost:3001/", {
+        const response = await axios.post("http://localhost:4000/login", {
           email,
           password
         });
@@ -47,14 +47,14 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Email'
-              style={{ backgroundColor: 'white', width: '425px', height: '60px', borderRadius: '20px', marginTop: '15px', marginBottom: '30px', marginLeft: '22px', paddingLeft: '50px', color: '#D4D0D0' }}
+              style={{ backgroundColor: 'white', width: '425px', height: '60px', borderRadius: '20px', marginTop: '15px', marginBottom: '30px', marginLeft: '22px', paddingLeft: '50px', color: 'black' }}
             />
             <input
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder='Password'
-              style={{ backgroundColor: 'white', width: '425px', height: '60px', borderRadius: '20px', marginTop: '4px', marginLeft: '22px', paddingLeft: '50px', color: '#D4D0D0' }}
+              style={{ backgroundColor: 'white', width: '425px', height: '60px', borderRadius: '20px', marginTop: '4px', marginLeft: '22px', paddingLeft: '50px', color: 'black' }}
             />
           </div>
           <button type='submit' onClick={submit} style={{ backgroundColor: 'black', marginLeft: '46.8%', marginTop: '50px', borderRadius: '15px', fontWeight: '500', padding: '5px 15px 5px 15px', fontSize: '20px', color: 'white' }}>Login</button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import Logo from '../Images/Logo.svg';
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/Signup", {
+      const response = await axios.post("http://localhost:4000/signup", {
         email,
         password
       });
@@ -21,7 +21,7 @@ export default function Login() {
       if (response.data === "exist") {
         alert("User already exists");
       } else if (response.data === "notexist") {
-        navigate("/", { state: { id: email } });
+        navigate("/Home", { state: { id: email } });
         alert("Sign up completed")
       }
     } catch (error) {
