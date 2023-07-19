@@ -1,43 +1,73 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+// ContactForm.js
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Container } from 'react-bootstrap';
 import './Review.css';
 
-export default function AddForm() {
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('/api/contact', formData);
+      alert('Your message has been sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      alert('Error sending your message. Please try again later.');
+      console.error(error);
+    }
+  };
+
   return (
     <div>
+      <center>
+      <h2>Contact Us</h2>
       <Container>
-      <h2 style={{ color: "white",textAlign: "center" }}>MAIL US</h2>
-        <Form className="form">
-          <Form.Group className="mb-3" controlId="formBasicText">
-            
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter Name" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="text" placeholder="Enter email" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Subject</Form.Label>
-            <Form.Control type="text" placeholder="Enter subject" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Message</Form.Label>
-            <Form.Control type="text" placeholder="Enter message" />
-          </Form.Group>
-          {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="I agree to Terms and Conditions" />
-          </Form.Group> */}
-          <Button variant="info" type="submit">
-            Submit
-          </Button>
-        </Form>
+      <form className="form" onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
       </Container>
+      </center>
     </div>
   );
-}
+};
+
+export default ContactForm;
